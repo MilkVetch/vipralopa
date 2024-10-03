@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vipralopa Book Showcase</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            background-color: #111827;
+            color: white;
+        }
+        header {
+            background-color: #1f2937;
+            padding: 1rem;
+        }
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        h1 {
+            font-size: 1.875rem;
+            font-weight: bold;
+            color: #ef4444;
+            margin: 0;
+        }
+        nav ul {
+            list-style-type: none;
+            display: flex;
+            gap: 1rem;
+            margin: 0;
+            padding: 0;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        nav a:hover {
+            color: #ef4444;
+        }
+        main {
+            flex-grow: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+        .book-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+        .book-item {
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        .book-item:hover {
+            transform: scale(1.05);
+        }
+        .book-item img {
+            width: 100%;
+            height: 16rem;
+            object-fit: cover;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 0.5rem;
+        }
+        .book-item h3 {
+            margin-top: 0.5rem;
+            text-align: center;
+            font-weight: 600;
+        }
+        .book-detail {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+        .book-detail img {
+            width: 16rem;
+            height: 24rem;
+            object-fit: cover;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 1rem;
+        }
+        .book-detail h2 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .book-detail p {
+            max-width: 32rem;
+            margin-bottom: 1rem;
+        }
+        .button {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background-color: #ef4444;
+            color: white;
+            text-decoration: none;
+            border-radius: 0.25rem;
+            transition: background-color 0.2s;
+        }
+        .button:hover {
+            background-color: #dc2626;
+        }
+        .button-outline {
+            background-color: transparent;
+            border: 1px solid #ef4444;
+            color: #ef4444;
+        }
+        .button-outline:hover {
+            background-color: #ef4444;
+            color: white;
+        }
+        footer {
+            background-color: #1f2937;
+            padding: 1rem;
+            text-align: center;
+        }
+        @media (min-width: 768px) {
+            .book-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+            .book-detail {
+                flex-direction: row;
+                text-align: left;
+                align-items: flex-start;
+            }
+            .book-detail img {
+                margin-right: 2rem;
+                margin-bottom: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <h1>Vipralopa</h1>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div id="bookGrid" class="book-grid"></div>
+        <div id="bookDetail" class="book-detail"></div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Vipralopa. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const books = [
+            { id: 1, title: "The Awakening", cover: "/placeholder.svg?height=400&width=300", summary: "In a world where ancient powers resurface, one woman discovers her hidden abilities and becomes the key to humanity's survival." },
+            { id: 2, title: "Echoes of Eternity", cover: "/placeholder.svg?height=400&width=300", summary: "A timeless love story spanning centuries, where past and present collide in a dance of destiny and desire." },
+            { id: 3, title: "Shadows of the Forgotten", cover: "/placeholder.svg?height=400&width=300", summary: "Uncover the secrets of a lost civilization as a team of archaeologists face supernatural threats in the depths of an ancient ruin." },
+            { id: 4, title: "Whispers in the Void", cover: "/placeholder.svg?height=400&width=300", summary: "A mind-bending journey through space and consciousness, where reality bends and the impossible becomes possible." },
+        ];
+
+        const bookGrid = document.getElementById('bookGrid');
+        const bookDetail = document.getElementById('bookDetail');
+
+        function createBookGrid() {
+            books.forEach(book => {
+                const bookItem = document.createElement('div');
+                bookItem.className = 'book-item';
+                bookItem.innerHTML = `
+                    <img src="${book.cover}" alt="${book.title}">
+                    <h3>${book.title}</h3>
+                `;
+                bookItem.addEventListener('click', () => showBookDetail(book));
+                bookGrid.appendChild(bookItem);
+            });
+        }
+
+        function showBookDetail(book) {
+            bookGrid.style.display = 'none';
+            bookDetail.style.display = 'flex';
+            bookDetail.innerHTML = `
+                <img src="${book.cover}" alt="${book.title}">
+                <div>
+                    <h2>${book.title}</h2>
+                    <p>${book.summary}</p>
+                    <div>
+                        <a href="#" class="button">Start Reading</a>
+                        <a href="#" class="button button-outline" id="returnToShelf">Return to Shelf</a>
+                    </div>
+                </div>
+            `;
+            document.getElementById('returnToShelf').addEventListener('click', returnToShelf);
+            animateBookDetail();
+        }
+
+        function returnToShelf(e) {
+            e.preventDefault();
+            bookDetail.style.display = 'none';
+            bookGrid.style.display = 'grid';
+            animateBookGrid();
+        }
+
+        function animateBookDetail() {
+            bookDetail.style.opacity = '0';
+            bookDetail.style.transform = 'translateX(-100px)';
+            setTimeout(() => {
+                bookDetail.style.transition = 'opacity 0.5s, transform 0.5s';
+                bookDetail.style.opacity = '1';
+                bookDetail.style.transform = 'translateX(0)';
+            }, 50);
+        }
+
+        function animateBookGrid() {
+            const bookItems = bookGrid.querySelectorAll('.book-item');
+            bookItems.forEach((item, index) => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(20px)';
+                setTimeout(() => {
+                    item.style.transition = 'opacity 0.5s, transform 0.5s';
+                    item.style.opacity = '1';
+                    item.style.transform = 'translateY(0)';
+                }, index * 100);
+            });
+        }
+
+        createBookGrid();
+        animateBookGrid();
+    </script>
+</body>
+</html>
