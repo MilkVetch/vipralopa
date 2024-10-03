@@ -6,12 +6,16 @@ body {
     min-height: 100vh;
     display: flex;
     flex-direction: column;
-    background-color: #111827;
+    
+    background-image: url('bg-f.jpg');
+    background-size: cover; /* 使图片覆盖整个背景 */
+    background-position: center; /* 将图片居中 */
+    background-repeat: no-repeat; /* 防止图片重复 */
     color: white;
 }
 
 header {
-    background-color: #1f2937;
+    background-color: rgba(0, 0, 0, 0.6);
     padding: 1rem;
 }
 
@@ -134,7 +138,7 @@ main {
 }
 
 footer {
-    background-color: #1f2937;
+    background-color: rgba(0, 0, 0, 0.6);
     padding: 1rem;
     text-align: center;
 }
