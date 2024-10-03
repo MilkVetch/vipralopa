@@ -3,25 +3,25 @@ const books = [
       title: "求生篇", 
       cover: "qiusheng.jpg?height=400&width=300",
       link: "#",
-      summary: "In a world where ancient powers resurface, one woman discovers her hidden abilities and becomes the key to humanity's survival." 
+      summary: "丧尸占领了这个世界，李荣轩擦拭着脸上的血渍，活下去，一定要活下去！" 
     },
     { id: 2,
       title: "救世篇",
       cover: "jiushi.jpg?height=400&width=300",
       link: "https://khee-huang.gitbook.io/vipralopa/mo-shi-jie-jiu-shi-pian",
-      summary: "A timeless love story spanning centuries, where past and present collide in a dance of destiny and desire." 
+      summary: "欢迎来到我的世界！今天，你的任务是成为全人类的救世主！" 
     },
     { id: 3,
       title: "机密档案",
       cover: "jimidangan.jpg?height=400&width=300",
       link: "https://khee-huang.gitbook.io/vipralopa",
-      summary: "Uncover the secrets of a lost civilization as a team of archaeologists face supernatural threats in the depths of an ancient ruin." 
+      summary: "当一个人失去思想和自我判别能力的时候，心中的丧尸就会趁虚而入、霸占躯体，而此时此刻，人已非人！！" 
     },
     { id: 4,
       title: "死囚 X",
       cover: "siqiux.jpg?height=400&width=300",
       link: "https://khee-huang.gitbook.io/vipralopa/mo-shi-jie-si-qiu-x",
-      summary: "A mind-bending journey through space and consciousness, where reality bends and the impossible becomes possible." 
+      summary: "张琳猛然回过头，看到一个背枪的大兵，张琳可以感觉到他体内逐渐增多的雄性荷尔蒙。这一刹那，她仿佛看到了一束光。" 
     },
 ];
 
