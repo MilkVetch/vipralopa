@@ -89,7 +89,7 @@ const CloseButton = styled.button`
 `
 
 const NovelCoverContainer = styled.div<{ $isClosing: boolean }>`
-  width: 40%;
+  // width: 40%;
   height: 100%;
   display: flex;
   justify-content: center;
