@@ -52,7 +52,7 @@ const AppContent = () => {
 
 const App: React.FC = () => {
   return (
-    <Router>
+    <Router basename='/vipralopa'>
       <AppContainer>
         <AppContent />
       </AppContainer>
