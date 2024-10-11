@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/vipralopa/static/js/main.571c188e.js",
+    "main.js": "/vipralopa/static/js/main.ccc38b26.js",
     "index.html": "/vipralopa/index.html",
-    "main.571c188e.js.map": "/vipralopa/static/js/main.571c188e.js.map"
+    "main.ccc38b26.js.map": "/vipralopa/static/js/main.ccc38b26.js.map"
   },
   "entrypoints": [
-    "static/js/main.571c188e.js"
+    "static/js/main.ccc38b26.js"
   ]
 }
